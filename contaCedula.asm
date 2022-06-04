@@ -40,7 +40,7 @@ syscall
 
 
 # E verificação para avaliar se o valor inserido é maior que o saldo:
-bge $v0, $t8, exit 
+bgt $v0, $t8, exit 
 
 # comparações com base em quantidade mínima:
 
@@ -194,4 +194,4 @@ syscall
 exit:  # finaliza, caso o saldo seja inválido
 li $v0, 4
 la $a0, error_message
-
+syscall
