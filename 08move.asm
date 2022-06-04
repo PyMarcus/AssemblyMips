@@ -3,4 +3,4 @@
 
 li $8, 10
 li $9, 5 
-move $9, $8  # passe o valor de $8 para $9
+move $9, $8  # passe o valor de $8 para $9 (sobreescreve)
