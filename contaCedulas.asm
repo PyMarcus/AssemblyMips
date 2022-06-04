@@ -1,6 +1,7 @@
 .data 
 # local para acesso direto à memória, alocação e afins
 message: .asciiz "Valor da compra: "
+error_message: .asciiz "ERROR - Valor informado excede o saldo da conta"
 
 .text
 # local que contém instruções 
@@ -22,6 +23,7 @@ li $t5, 10
 
 # (true e false)
 li $s7, 1
+li $t8, 100  # valor limite
 
 
 ########## Fim da declaração de variáveis ####
@@ -36,6 +38,9 @@ syscall
 li $v0, 5  # inteiro armazenado no registrador $v0, sem acesso à memória
 syscall
 
+
+# E verificação para avaliar se o valor inserido é maior que o saldo:
+bge $v0, $t8, exit 
 
 # comparações com base em quantidade mínima:
 
@@ -180,4 +185,13 @@ move $a0, $s4
 syscall	
 li $v0, 1
 move $a0, $s5
-syscall		
+syscall	
+
+li $v0, 10  # encerra o programa, forçadamente
+syscall
+
+
+exit:  # finaliza, caso o saldo seja inválido
+li $v0, 4
+la $a0, error_message
+
