@@ -15,7 +15,7 @@
 	li $t2, 0   # indice do vetor
 	
 	loop:
-		lw $a0, ($t0)  # carrega 32 bits para a0 no endereco de memoria de t0(aponta) #pega o valor que está no endereço de memória
+		lw $a0, ($t0)  # carrega os 20 bits para a0 no endereco de memoria de t0(aponta) #pega o valor que está no endereço de memória
 		syscall # imprime na tela
 		
 		addi $t2, $t2, 4  # 4 bits ( de 4 em 4 bits, percorre-se o vetor)
