@@ -3,7 +3,7 @@
 .data 
 
 
-	vetor: .word 1, 2, 3, 4, 5  # 32 bites (8 bytes)
+	vetor: .word 1, 2, 3, 4, 5  # 20 bites (5 bytes)
 
 .text 
 	# apontando para a base do vetor
@@ -15,7 +15,7 @@
 	li $t2, 0   # indice do vetor
 	
 	loop:
-		lw $a0, ($t0)  # carrega 32 bits para a0 no endereco de memoria de t0(aponta) #pega o valor que est· no endereÁo de memÛria
+		lw $a0, ($t0)  # carrega 32 bits para a0 no endereco de memoria de t0(aponta) #pega o valor que est√° no endere√ßo de mem√≥ria
 		syscall # imprime na tela
 		
 		addi $t2, $t2, 4  # 4 bits ( de 4 em 4 bits, percorre-se o vetor)
